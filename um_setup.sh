@@ -14,13 +14,13 @@ sudo dnf install vlc tmux tldr yakuake tmux-powerline powerline vim-powerline -y
 
 
 # Flatpak apps installations
-# Apps in order, discord, telegram, spotify, obs, obsidian, edge, chromium, bitwarden, krita, warehouse, shortwave, flatseal, gearlever
+# Apps in order, discord, telegram, spotify, obsidian,bitwarden, krita, warehouse, shortwave, flatseal, gearlever
 echo 'Flatpak App Install'
-sudo flatpak install com.discordapp.Discord org.telegram.desktop com.spotify.Client com.obsproject.Studio md.obsidian.Obsidian com.microsoft.Edge org.chromium.Chromium com.bitwarden.desktop org.kde.krita io.github.flattool.Warehouse de.haeckerfelix.Shortwave com.github.tchx84.Flatseal it.mijorus.gearlever -y
+sudo flatpak install com.discordapp.Discord org.telegram.desktop com.spotify.Client md.obsidian.Obsidian com.bitwarden.desktop org.kde.krita io.github.flattool.Warehouse de.haeckerfelix.Shortwave com.github.tchx84.Flatseal it.mijorus.gearlever -y
 
 # Flatpak game installations
-# Apps in order, protonup-qt, protontricks, retroarch, heroic games launcher, lutris, PortProton, steamlink, pinball
-sudo flatpak install net.davidotek.pupgui2 com.github.Matoking.protontricks org.libretro.RetroArch com.heroicgameslauncher.hgl net.lutris.Lutris ru.linux_gaming.PortProton com.valvesoftware.SteamLink com.github.k4zmu2a.spacecadetpinball -y
+# Apps in order, protonup-qt, protontricks, retroarch, limo
+sudo flatpak install net.davidotek.pupgui2 com.github.Matoking.protontricks io.github.limo_app.limo -y
 
 # Add repos vscode mullvad
 
@@ -34,6 +34,10 @@ sudo dnf config-manager --add-repo https://repository.mullvad.net/rpm/stable/mul
 # install
 sudo dnf update -y
 sudo dnf install code mullvad-vpn -y
+
+#oh-my zsh
+echo "Installing oh-my-zsh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Tmux Autostart Config
 # from mark hansen https://www.markhansen.co.nz/auto-start-tmux/

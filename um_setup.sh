@@ -14,30 +14,26 @@ sudo dnf install vlc tmux tldr yakuake tmux-powerline powerline vim-powerline -y
 
 
 # Flatpak apps installations
-# Apps in order, discord, telegram, spotify, obsidian,bitwarden, krita, warehouse, shortwave, flatseal, gearlever
+# Apps in order, discord, telegram, spotify, obsidian,bitwarden, krita, warehouse, shortwave, flatseal, gearlever, vscode
+
 echo 'Flatpak App Install'
-sudo flatpak install com.discordapp.Discord org.telegram.desktop com.spotify.Client md.obsidian.Obsidian com.bitwarden.desktop org.kde.krita io.github.flattool.Warehouse de.haeckerfelix.Shortwave com.github.tchx84.Flatseal it.mijorus.gearlever -y
+sudo flatpak install com.discordapp.Discord org.telegram.desktop com.spotify.Client md.obsidian.Obsidian com.bitwarden.desktop org.kde.krita io.github.flattool.Warehouse de.haeckerfelix.Shortwave com.github.tchx84.Flatseal it.mijorus.gearlever com.visualstudio.code -y
 
 # Flatpak game installations
 # Apps in order, protonup-qt, protontricks, retroarch, limo
 sudo flatpak install net.davidotek.pupgui2 com.github.Matoking.protontricks io.github.limo_app.limo -y
 
-# Add repos vscode mullvad
+# Add repos mullvad
 
-# vscode
-sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
-
-# mullvad
-sudo dnf config-manager --add-repo https://repository.mullvad.net/rpm/stable/mullvad.repo
+# mullvad feb2026
+# Fedora 41 and newer
+# Add the Mullvad repository server to dnf
+sudo dnf config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/stable/mullvad.repo
 
 # install
 sudo dnf update -y
-sudo dnf install code mullvad-vpn -y
+sudo dnf install mullvad-vpn -y
 
-#oh-my zsh
-echo "Installing oh-my-zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Tmux Autostart Config
 # from mark hansen https://www.markhansen.co.nz/auto-start-tmux/
@@ -96,6 +92,8 @@ EOF
 
 echo "Telegram Desktop, Yakuake, and Mullvad VPN added to KDE autostart"
 
-
-
 echo 'Complete'
+
+#oh-my zsh
+echo "Installing oh-my-zsh this will exit out of script on completion"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
